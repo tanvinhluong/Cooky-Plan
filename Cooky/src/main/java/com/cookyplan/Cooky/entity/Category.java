@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.cookyplan.Cooky.entity.CategoryDetails;
+
 
 @Entity
 @Table(name="category")
@@ -18,8 +18,10 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer ID_CATEGORY;
 	String NAME;
+	
 	@OneToMany(mappedBy="category")
 	Collection<CategoryDetails> categoryDetails;
+	
 	public Collection<CategoryDetails> getCategoryDetails() {
 		return categoryDetails;
 	}
