@@ -8,35 +8,54 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.cookyplan.Cooky.entity.Foods;
 
 @Entity
 @Table(name="categorydetails")
 public class CategoryDetails {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer ID_CATEGORY;
+	Integer Id;
+//	Integer ID_CATEGORY;
+//	Integer ID_FOOD;
+	
 	@ManyToOne
 	@JoinColumn(name="ID_CATEGORY")
 	Category category;
+	
 	@ManyToOne
-	@JoinColumn(name="Id")
-	Foods food;
-	public Integer getID_CATEGORY() {
-		return ID_CATEGORY;
+	@JoinColumn(name="ID_FOOD")
+	Foods foods;
+
+	public Integer getId() {
+		return Id;
 	}
 
-	public void setID_CATEGORY(Integer iD_CATEGORY) {
-		ID_CATEGORY = iD_CATEGORY;
+	public void setId(Integer id) {
+		Id = id;
 	}
 
-	public Integer getID_FOOD() {
-		return ID_FOOD;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setID_FOOD(Integer iD_FOOD) {
-		ID_FOOD = iD_FOOD;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	Integer ID_FOOD;
+	public Foods getFoods() {
+		return foods;
+	}
+
+	public void setFoods(Foods foods) {
+		this.foods = foods;
+	}
+
+  
+
+	
+	
+	
+	
 }

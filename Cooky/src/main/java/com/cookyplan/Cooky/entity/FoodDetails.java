@@ -1,6 +1,9 @@
 package com.cookyplan.Cooky.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -9,35 +12,30 @@ import javax.persistence.Table;
 @Table(name="fooddetails")
 
 public class FoodDetails {
-
-	Integer Id_Food;
-	Integer Id_Ingredients;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer Id;
+	//Integer ID_INGREDIENTS;
+	//Integer ID_FOODS;
 	String Name;
 	Integer Quantity;
 	String unitPrice;
 	
 	@ManyToOne
-	@JoinColumn(name="Id")
+	@JoinColumn(name="ID_INGREDIENTS")
 	Ingredients ingredients;
 	
 	@ManyToOne
-	@JoinColumn(name="Id")
+	@JoinColumn(name="ID_FOOD")
 	Foods foods;
 
-	public Integer getId_Food() {
-		return Id_Food;
+	public Integer getId() {
+		return Id;
 	}
 
-	public void setId_Food(Integer id_Food) {
-		Id_Food = id_Food;
-	}
-
-	public Integer getId_Ingredients() {
-		return Id_Ingredients;
-	}
-
-	public void setId_Ingredients(Integer id_Ingredients) {
-		Id_Ingredients = id_Ingredients;
+	public void setId(Integer id) {
+		Id = id;
 	}
 
 	public String getName() {
@@ -79,6 +77,10 @@ public class FoodDetails {
 	public void setFoods(Foods foods) {
 		this.foods = foods;
 	}
+
+	
+
+	
 	
 	
 }

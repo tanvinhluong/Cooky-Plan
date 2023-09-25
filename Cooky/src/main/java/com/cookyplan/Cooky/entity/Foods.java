@@ -26,8 +26,10 @@ public class Foods {
 	
 	@OneToMany(mappedBy="foods")
 	Collection<CategoryDetails> categoryDetails;
+	
 	@OneToMany(mappedBy="foods")
 	Collection<FoodDetails> foodDetails;
+	
 	public Integer getId() {
 		return Id;
 	}
