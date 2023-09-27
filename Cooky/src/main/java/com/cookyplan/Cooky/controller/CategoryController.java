@@ -1,3 +1,4 @@
+
 package com.cookyplan.Cooky.controller;
 
 import org.hibernate.SessionFactory;
@@ -11,19 +12,22 @@ import com.cookyplan.Cooky.dao.CategoryDAO;
 import com.cookyplan.Cooky.entity.Category;
 
 @Transactional
+
 @Controller
 public class CategoryController {
+
 	@Autowired
 	SessionFactory factory;
+
 	@Autowired
 	CategoryDAO dao;
-	
+
 	@RequestMapping("/category/index")
 	public String index(Model model) {
 		Category entity = new Category();
-		
+
 		model.addAttribute("model", entity);
-		
+
 		return "category/index";
 	}
 }
